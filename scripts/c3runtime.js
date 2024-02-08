@@ -4171,10 +4171,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.MoveTo,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.Sprite.Acts.SetVisible,
+		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.Audio.Acts.Play,
 		C3.Plugins.Touch.Cnds.OnTouchObject,
-		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.Mouse.Cnds.IsOverObject,
 		C3.Plugins.Mouse.Acts.SetCursor,
@@ -4230,7 +4230,7 @@ self.C3_JsPropNameTable = [
 	{btnKaynakca: 0},
 	{background: 0},
 	{btnbasla: 0},
-	{btnHoome: 0},
+	{btnHome: 0},
 	{bilgi: 0},
 	{hazirlayanlar: 0},
 	{btnKapat: 0},
@@ -4295,7 +4295,7 @@ self.InstanceType = {
 	btnKaynakca: class extends self.ISpriteInstance {},
 	background: class extends self.ISpriteInstance {},
 	btnbasla: class extends self.ISpriteInstance {},
-	btnHoome: class extends self.ISpriteInstance {},
+	btnHome: class extends self.ISpriteInstance {},
 	bilgi: class extends self.ISpriteInstance {},
 	hazirlayanlar: class extends self.ISpriteInstance {},
 	btnKapat: class extends self.ISpriteInstance {},
@@ -4435,15 +4435,16 @@ function or(l, r)
 }
 
 self.C3_ExpressionFuncs = [
+		() => "bilgi",
+		() => "background",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
 		},
 		() => 1,
+		() => -1,
 		() => 0,
 		() => "muzik",
-		() => "bilgi",
-		() => "background",
 		() => "ses",
 		() => "close",
 		() => "open",
@@ -4499,7 +4500,8 @@ self.C3_ExpressionFuncs = [
 		() => 900,
 		() => 730,
 		() => 560,
-		() => 350
+		() => 350,
+		() => "buttons"
 ];
 
 
